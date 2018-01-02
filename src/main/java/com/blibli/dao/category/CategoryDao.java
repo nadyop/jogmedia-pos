@@ -96,6 +96,22 @@ public class CategoryDao extends My_Connection implements CategoryDaoInterface {
             System.out.println("Error while deleting.."+e.toString());
         }
     }
+
+    @Override
+    public void createTableCategory() {
+        String psql="create table CATEGORY(Category_id serial not null,category_name character varying(255),category_desc text,STATUS integer,unique(category_name),constraint PK_category primary key (category_ID))";
+        try{
+
+            this.makeConnection();
+            Statement statement= this.con.createStatement();
+            statement.executeQuery(psql);
+            this.disconnect();
+        }
+        catch (Exception e){
+            System.out.println("Error while creating table category.."+e.toString());
+        }
+    }
+
     @Override
     public List<Category> search(String searchKey) {
         String psql="select * from category where lower(category_name) like lower('%" + searchKey+ "%') ORDER BY category_id";

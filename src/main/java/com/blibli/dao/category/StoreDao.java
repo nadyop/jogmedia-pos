@@ -71,6 +71,21 @@ public class StoreDao extends My_Connection implements StoreDaoInterface {
     }
 
     @Override
+    public void createTableStore() {
+        String psql="create table STORE(store_id serial not null,store_name character varying(50),address character varying (255),npwp character varying(25),post_code character varying(10),email character varying(50),constraint PK_Store primary key(store_id))";
+        try{
+
+            this.makeConnection();
+            Statement statement= this.con.createStatement();
+            statement.executeQuery(psql);
+            this.disconnect();
+        }
+        catch (Exception e){
+            System.out.println("Error while creating table store.."+e.toString());
+        }
+    }
+
+    @Override
     public Store getIdStore(int idStore){
         String psql="Select * from Store where store_id='"+idStore+"';";
         Store store= new Store();

@@ -7,6 +7,7 @@ import java.util.List;
 public interface StoreDaoInterface {
 
     void insertStore (Store s);
+    void createTableStore();
     Store getIdStore(int idStore);
     List<Store> getStore();
 }

@@ -319,6 +319,46 @@ public class TransactionDao extends My_Connection implements TransactionInterfac
             System.out.println("Error while deleting.. "+e.toString());
         }
     }
+
+    @Override
+    public void createTableTransaction() {
+        String psql="create table TRANSACTION(TRANSACTION_ID serial not null,EMPLOYEE_ID int not null,total_pembelian numeric(19,2),tanggal_transaksi timestamp,constraint PK_TRANSACTION primary key (TRANSACTION_ID),constraint fk_empId foreign key(employee_id) references employee(employee_id))";
+        try {
+            this.makeConnection();
+            Statement statement = this.con.createStatement();
+            statement.execute(psql);
+            this.disconnect();
+        } catch (Exception e) {
+            System.out.println("Error while creating table transaction.. "+e.toString());
+        }
+    }
+
+    @Override
+    public void createTableTemp() {
+        String psql="create table temp_detil(id_detil serial not null,BOOK_ID integer not null,QUANTITY integer,UNIT_PRICE numeric(19,2),DISCOUNT integer,constraint pk_doublePK primary key (id_detil,book_id))";
+        try {
+            this.makeConnection();
+            Statement statement = this.con.createStatement();
+            statement.execute(psql);
+            this.disconnect();
+        } catch (Exception e) {
+            System.out.println("Error while creating table temp_detil.. "+e.toString());
+        }
+    }
+
+    @Override
+    public void createTableDetilTransaction() {
+        String psql="create table DETIL_TRANSACTION(DETIL_ID serial not null,TRANSACTION_ID integer not null,BOOK_ID integer not null,QUANTITY integer,UNIT_PRICE numeric(19,2),DISCOUNT integer,constraint PK_DETIL_TRANSACTION primary key (DETIL_ID),constraint fk_transId foreign key(transaction_id) references transaction(transaction_id),constraint fk_bookId foreign key(book_id) references book(book_id))";
+        try {
+            this.makeConnection();
+            Statement statement = this.con.createStatement();
+            statement.execute(psql);
+            this.disconnect();
+        } catch (Exception e) {
+            System.out.println("Error while creating table detil_transaction.. "+e.toString());
+        }
+    }
+
     @Override
     public List<Store> getDataStore(){
 

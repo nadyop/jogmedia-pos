@@ -14,6 +14,9 @@ public interface TransactionInterface {
     void updateTempDetil(double tempUnitPrice, int qty, int id);
     void updatingStok(int id, int qty);
     void deleteTempDetil();
+    void createTableTransaction();
+    void createTableTemp();
+    void createTableDetilTransaction();
 
     List<Book> searchCashier(String searchKey);
     List<TempDetil> getAllTempDetilSaved();

@@ -16,6 +16,13 @@ public class Store {
         this.post_code = post_code;
         this.email = email;
     }
+    public Store(String store_name, String address, String npwp, String post_code, String email) {
+        this.store_name = store_name;
+        this.address = address;
+        this.npwp = npwp;
+        this.post_code = post_code;
+        this.email = email;
+    }
 
     public void setStore_id(int store_id) {
         this.store_id = store_id;

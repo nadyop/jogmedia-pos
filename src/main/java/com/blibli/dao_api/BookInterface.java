@@ -14,4 +14,5 @@ public interface BookInterface {
     Book getIdBook(int idBook);
     void saveBook(Book book);
     void softDeleteBook(int id);
+    void createTableBook();
 }

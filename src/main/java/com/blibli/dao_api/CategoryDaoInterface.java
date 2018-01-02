@@ -13,5 +13,5 @@ public interface CategoryDaoInterface {
     void insertCategory(Category C);
     void softDeleteCategory(int id);
     void delete (int id);
-
+    void createTableCategory();
 }
