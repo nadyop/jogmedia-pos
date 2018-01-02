@@ -23,6 +23,13 @@ public class Employee {
         this.role = role;
         this.status = status;
     }
+    public Employee(String employee_name, String employee_uname, String password, String role)
+    {
+        this.employee_name = employee_name;
+        this.employee_uname = employee_uname;
+        this.password = password;
+        this.role = role;
+    }
 
     public String getEmployee_uname() {
         return employee_uname;
