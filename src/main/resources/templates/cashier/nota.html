@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Jogmedia</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}" rel="stylesheet" media="screen"/>
+    <!--creation-->
+    <link th:href="@{/css/nota.css}" rel="stylesheet" media="screen"/>
+
+    <meta http-equiv="context-type" content="text/html; charset=UTF-8"/>
+</head>
+<body onload="window.print()">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="invoice-title">
+                <h2>Invoice</h2><h3 class="pull-right"></h3>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-xs-6" th:if="${not #lists.isEmpty(store)}">
+                    <div th:each="store: ${store}">
+                        <strong><span th:text="${store.store_name}"></span></strong><br/>
+                        <strong><span th:text="${store.address}"></span></strong><br/>
+                        <strong><span th:text="${store.email}"></span></strong><br/>
+                        <strong><span th:text="${store.post_code}"></span></strong><br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Order summary</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(detils)}">
+                        <table class="table table-condensed">
+                            <thead>
+                            <tr>
+                                <td><strong>Item</strong></td>
+                                <td class="text-center"><strong>Quantity</strong></td>
+                                <td class="text-center"><strong>Discount</strong></td>
+                                <td class="text-right"><strong>Totals</strong></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                            <tr th:each="detils: ${detils}">
+
+                                <td class="text-left" th:text="${detils.book_title}"></td>
+                                <td class="text-center" th:text="${detils.quantity}"></td>
+                                <td class="text-center" th:text="${detils.discountDetil}"></td>
+                                <td class="text-right" th:text="${detils.unit_price}"></td>
+                            </tr>
+                            <tr>
+                                <td class="thick-line"></td>
+                                <td class="thick-line"></td>
+                                <td class="thick-line text-center"><strong>Total</strong></td>
+                                <td class="thick-line text-right" th:text="${total}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

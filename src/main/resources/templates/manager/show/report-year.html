@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="context-type" content="text/html; charset=UTF-8"/>
+    <title>Jogmedia</title>
+    <!--bootstrap, icon, font-->
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons}" rel="stylesheet" media="screen"/>
+
+    <!--data-Table-->
+    <link rel="stylesheet" type="text/css" th:href="@{//cdn.datatables.net/1.10.16/css/jquery.dataTables.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css}"/>
+
+    <!--creation-->
+    <link th:href="@{/css/manager.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar" data-color="green">
+        <div class="logo">
+            <a href="/store" class="simple-text">
+                <strong>JOGMEDIA</strong>
+            </a>
+            <center>
+                <span th:inline="text"> Hi, [[${#httpServletRequest.remoteUser}]]!</span>
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn btn-white btn-round">
+                        <i class="material-icons">input</i>Signout
+                        <div class="ripple-container"></div>
+                    </button>
+                </form>
+            </center>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li>
+                    <a href="/store">
+                        <i class="material-icons">home</i>
+                        <p>Store</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/book">
+                        <i class="material-icons">book</i>
+                        <p>Book</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/category">
+                        <i class="material-icons">bubble_chart</i>
+                        <p>Category</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/report">
+                        <i class="material-icons">description</i>
+                        <p>Report</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/tampilemp">
+                        <i class="material-icons">person</i>
+                        <p>Employee</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <nav class="navbar navbar-transparent navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"> LEDGER MASTER - Annual</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <center>
+                            <ul class="nav nav-pills nav-pills-warning">
+                                <li class="active">
+                                    <a href="/report">
+                                        <i class="material-icons">attach_money</i>
+                                        General Ledger
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/report-detail">
+                                        <i class="material-icons">list</i>
+                                        Detail Transaction
+                                    </a>
+                                </li>
+                            </ul>
+                        </center>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4" style="margin-left: 2%; margin-top: 1%">
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Yearly
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-menuli"><a href="/report">Weekly</a></li>
+                            <li class="dropdown-menuli"><a href="/report-month">Monthly</a></li>
+                            <li class="dropdown-menuli"><a href="/report-year">Yearly</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5%">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card">
+                            <div class="card-header" data-background-color="grey">
+                                <h4 class="title">Best Selling</h4>
+                                <p class="category">Ten books best seller </p>
+                            </div>
+                            <div class="card-content table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="text-warning">
+                                    <th>ISBN</th>
+                                    <th>Title</th>
+                                    <th>Quantity</th>
+                                    <th>Total ( Rp. )</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="bestSellingYearly: ${bestSellingYearly}">
+                                        <td th:text="${bestSellingYearly.isbn}"></td>
+                                        <td th:text="${bestSellingYearly.book_title}"></td>
+                                        <td th:text="${bestSellingYearly.total_quantity}"></td>
+                                        <td th:text="${#numbers.formatDecimal(bestSellingYearly.total_price, 0, 'DEFAULT', 2, 'DEFAULT')}"  ></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--income-->
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header" data-background-color="grey">
+                                <i class="material-icons">book</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="category">Out of Stock</p>
+                                <h3 class="title"><span th:text="${itemOutStock}"></span>
+                                    <small>ITEMS</small>
+                                </h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons text-danger">warning</i>
+                                    <a href="#pablo">Book is out of stock</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header" data-background-color="grey">
+                                <i class="material-icons">attach_money</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="category">Income</p>
+                                <h3 class="title">
+                                    Rp. <span th:text="${#numbers.formatDecimal(incomeYear, 0, 'DEFAULT', 2, 'DEFAULT')}" ></span>
+                                </h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">date_range</i> in range year
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <p class="copyright pull-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
+                    <a href="/store">JOGMEDIA</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+</div>
+</body>
+<!--core-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--dataTables-->
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<!--jQuery navbar phone-->
+<script type="text/javascript" charset="utf8" th:src="@{js/perfect-scrollbar.jquery.min.js}"></script>
+<script type="text/javascript" charset="utf8" th:src="@{/js/material-dashboard.js}"></script>
+<!--creation-->
+<script>
+    $(document).ready(function() {
+        $('#showTable').DataTable( {
+            columnDefs: [
+                {
+                    targets: [ 0, 1, 2 ],
+                    className: 'mdl-data-table__cell--non-numeric'
+                }
+            ]
+        } );
+    } );
+</script>
+<script>
+    $(document).ready(function() {
+        var table = $('#showTable').DataTable();
+    } );
+</script>
+</html>

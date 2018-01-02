@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="context-type" content="text/html; charset=UTF-8"/>
+    <title>Jogmedia</title>
+    <!--bootstrap, icon, font-->
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons}" rel="stylesheet" media="screen"/>
+
+    <!--data-Table-->
+    <link rel="stylesheet" type="text/css" th:href="@{//cdn.datatables.net/1.10.16/css/jquery.dataTables.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css}"/>
+
+    <!--creation-->
+    <link th:href="@{/css/manager.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar" data-color="green">
+        <div class="logo">
+            <a href="/store" class="simple-text">
+                <strong>JOGMEDIA</strong>
+            </a>
+            <center>
+                <span th:inline="text"> Hi, [[${#httpServletRequest.remoteUser}]]!</span>
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn btn-white btn-round">
+                        <i class="material-icons">input</i>Signout
+                        <div class="ripple-container"></div>
+                    </button>
+                </form>
+            </center>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li>
+                    <a href="/store">
+                        <i class="material-icons">home</i>
+                        <p>Store</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/book">
+                        <i class="material-icons">book</i>
+                        <p>Book</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/category">
+                        <i class="material-icons">bubble_chart</i>
+                        <p>Category</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/report">
+                        <i class="material-icons">description</i>
+                        <p>Report</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/tampilemp">
+                        <i class="material-icons">person</i>
+                        <p>Employee</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <nav class="navbar navbar-transparent navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"> BOOK MASTER </a>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header" data-background-color="green">
+                                <!--<h4 class="title">ALL BOOK</h4>-->
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper">
+                                        <ul class="nav nav-tabs" data-tabs="tabs" style="background: transparent!important;">
+                                            <li>
+                                                <a href="/book">
+                                                    <i class="material-icons">book</i> All Book
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/discount">
+                                                    <i class="material-icons">loyalty</i> Discount
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                            <li class="active">
+                                                <a href="/emptyStok">
+                                                    <i class="material-icons">clear</i> Out of Stock
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/book/createBook" class="btn btn-white btn-round" style="color: black!important;">
+                                                    <i class="material-icons">add</i>New Book
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--content tab-->
+                            <div class="card-content">
+                                <div class="tab-content">
+                                    <div class="tab-pane table-responsive active" id="allBook" th:if="${not #lists.isEmpty(book)}">
+                                        <table class="table" id="showTable">
+                                            <thead class="text-primary">
+                                            <th>ISBN</th>
+                                            <th>Title</th>
+                                            <th>Author</th>
+                                            <th>Publisher</th>
+                                            <th>Category Name</th>
+                                            <th>Status</th>
+                                            <th>Price</th>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="book: ${book}">
+                                                <td th:text="${book.isbn}"></td>
+                                                <td th:text="${book.book_title}"></td>
+                                                <td th:text="${book.author}"></td>
+                                                <td th:text="${book.publisher}"></td>
+                                                <td th:each="cat : ${categories}"
+                                                    th:if="${book.category_id==cat.category_id}" th:text="${cat.category_name}"></td>
+                                                <td th:if="${book.status == 1}" th:text="Active"></td>
+                                                <td th:if="${book.status == 0}" th:text="Non-Aactive"></td>
+                                                <td th:text="${book.price_after}"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <p class="copyright pull-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
+                    <a href="/store">JOGMEDIA</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+</div>
+</body>
+<!--core-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--dataTables-->
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<!--jQuery navbar phone-->
+<script type="text/javascript" charset="utf8" th:src="@{js/perfect-scrollbar.jquery.min.js}"></script>
+<script type="text/javascript" charset="utf8" th:src="@{/js/material-dashboard.js}"></script>
+<!--creation-->
+<script>
+    $(document).ready(function() {
+        $('#showTable').DataTable( {
+            columnDefs: [
+                {
+                    targets: [ 0, 1, 2 ],
+                    className: 'mdl-data-table__cell--non-numeric'
+                }
+            ]
+        } );
+    } );
+</script>
+<script>
+    $(document).ready(function() {
+        var table = $('#showTable').DataTable();
+    } );
+</script>
+</html>

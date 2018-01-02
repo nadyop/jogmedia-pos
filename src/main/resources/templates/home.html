@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}" rel="stylesheet" media="screen"/>
+    <!--creation-->
+    <link th:href="@{/css/cashier.css}" rel="stylesheet" media="screen"/>
+</head>
+<body class="bd-login">
+<div class="container">
+    <div class="col-sm-offset-3 col-md-offset-4 login">
+        <div class="panel-group">
+            <div class="panel panel-default pn-login">
+                <div class="panel-heading pn-login">
+                    <h3><center><strong  th:inline="text">Hi, [[${#httpServletRequest.remoteUser}]]!</strong></center></h3>
+                    <h3><center><strong>WELCOME TO JOGMEDIA</strong></center></h3>
+                </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xl-6">
+                                <a href="/book" class="btn btn-sq-lg a-home" style="margin-top: 25%">
+                                    <i class="fa fa-user fa-5x btn-home"></i><br/>
+                                    MANAGER
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xl-6">
+                                <a href="/transaction" class="btn btn-sq-lg a-home" style="margin-top: 25%">
+                                    <i class="fa fa-usd fa-5x btn-home"></i><br/>
+                                    CASHIER
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
