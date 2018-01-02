@@ -14,6 +14,7 @@ public class TugasApplication {
 		SpringApplication.run(TugasApplication.class, args);
 		Employee employee= new Employee("manager", "manager","$2a$10$mdhjwE.eJGRXp6P59U.dUOkOtweSDNBIcWTM3Jo3uhhqAGjT69/S2","Manager");
 		EmployeeDao employeeDao = new EmployeeDao();
+		employeeDao.createTable();
 		employeeDao.insertCategory(employee);
 	}
 }

@@ -7,6 +7,7 @@ import java.util.List;
 public interface EmployeeDaoInterface {
 
     void softDeleteEmployee(int id);
+    void createTable();
     void insertCategory(Employee E);
     Employee getIdEmployee(int idEmployee);
     List<Employee> getAllEmployee();

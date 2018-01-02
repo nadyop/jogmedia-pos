@@ -167,4 +167,19 @@ public class EmployeeDao extends My_Connection implements EmployeeDaoInterface {
             System.out.println("Error while soft deleting.."+e.toString());
         }
     }
+
+    @Override
+    public void createTable() {
+        String psql="create table if not exists EMPLOYEE " + "(" + "EMPLOYEE_ID serial not null," + "EMPLOYEE_NAME character varying(25)," + "EMPLOYEE_UNAME character varying(10)," + "PASSWORD text," + "ROLE character varying(10)," + "STATUS integer," + "unique(employee_uname)," + "constraint PK_EMPLOYEE primary key (EMPLOYEE_ID)" + ")";
+        try{
+
+            this.makeConnection();
+            Statement statement= this.con.createStatement();
+            statement.executeQuery(psql);
+            this.disconnect();
+        }
+        catch (Exception e){
+            System.out.println("Error while creating table employee.."+e.toString());
+        }
+    }
 }
