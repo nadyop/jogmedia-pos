@@ -22,7 +22,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Bean
     public TemplateResolver templateResolver(){
         TemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-        templateResolver.setPrefix("templates/");
+        templateResolver.setPrefix("/templates/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode("HTML5");
         return templateResolver;
