@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     @RequestMapping("")
     public String first(){
-        return "/home";
+        return "home";
     }
 
     @RequestMapping("/home")
@@ -22,6 +22,6 @@ public class HomeController {
 
     @RequestMapping("/403")
     public String error403() {
-        return "/error/403";
+        return "error/403";
     }
 }
