@@ -7,7 +7,6 @@
     <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
     <link th:href="@{//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css}" rel="stylesheet" media="screen"/>
     <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}" rel="stylesheet" media="screen"/>
-    <link th:href="@{http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons}" rel="stylesheet" media="screen"/>
 
     <!--data-Table-->
     <link rel="stylesheet" type="text/css" th:href="@{//cdn.datatables.net/1.10.16/css/jquery.dataTables.css}"/>
@@ -97,21 +96,18 @@
                                             <li class="active">
                                                 <a href="/book">
                                                     <i class="fa fa-book fa-1"></i>&nbsp; All Book
-                                                    <!--<i class="material-icons">book</i> All Book-->
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
                                             <li class="">
                                                 <a href="/discount">
                                                     <i class="fa fa-gift fa-1"></i>&nbsp; Discount
-                                                    <!--<i class="material-icons">loyalty</i> Discount-->
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
                                             <li class="">
                                                 <a href="/emptyStok">
                                                     <i class="fa fa-times fa-1"></i>&nbsp; Out of Stock
-                                                    <!--<i class="material-icons">clear</i> Out of Stock-->
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
@@ -210,9 +206,9 @@
 </div>
 </body>
 <!--core-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script th:inline="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script th:inline="javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script th:inline="javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--dataTables-->
 <script th:inline="javascript" type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 <script th:inline="javascript" type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -220,7 +216,6 @@
 <script type="text/javascript" th:inline="javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <!--jQuery navbar phone-->
 <script type="text/javascript" th:inline="javascript" charset="utf8" th:src="@{js/perfect-scrollbar.jquery.min.js}"></script>
-<script type="text/javascript" th:inline="javascript" charset="utf8" th:src="@{/js/material-dashboard.js}"></script>
 
 <!--creation-->
 <script type="text/javascript" th:inline="javascript">
