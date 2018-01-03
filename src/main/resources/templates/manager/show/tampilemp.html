@@ -112,17 +112,17 @@
                             <!--content tab-->
                             <div class="card-content">
                                 <div class="tab-content">
-                                    <form class="form-horizontal" th:action="@{/tampilemp/search}" method="post">
-                                        <!--Search Employee-->
-                                        <div class="col-md-3"></div>
-                                        <div class="col-md-6 row-fluid input-group" style="margin-top:3%">
-                                            <input type="text" class="form-control" name="searchKey" th:value="${searchKey}" placeholder="Employee Name"/>
-                                            <span class="input-group-btn">
-                                              <button class="btn btn-default btn-search btn-sm" type="button" name="button" >Search</button>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-3"></div>
-                                    </form>
+                                    <!--<form class="form-horizontal" th:action="@{/tampilemp/search}" method="post">-->
+                                        <!--&lt;!&ndash;Search Employee&ndash;&gt;-->
+                                        <!--<div class="col-md-3"></div>-->
+                                        <!--<div class="col-md-6 row-fluid input-group" style="margin-top:3%">-->
+                                            <!--<input type="text" class="form-control" name="searchKey" th:value="${searchKey}" placeholder="Employee Name"/>-->
+                                            <!--<span class="input-group-btn">-->
+                                              <!--<button class="btn btn-default btn-search btn-sm" type="button" name="button" >Search</button>-->
+                                            <!--</span>-->
+                                        <!--</div>-->
+                                        <!--<div class="col-md-3"></div>-->
+                                    <!--</form>-->
                                     <div class="display tab-pane table-responsive active" th:if="${not #lists.isEmpty(employee)}" style="align-items: left!important;">
                                         <table class="table" id="showTable" cellspacing="0" width="100%">
                                             <thead class="text-primary">
