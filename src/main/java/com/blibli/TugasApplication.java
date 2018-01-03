@@ -25,8 +25,10 @@ public class TugasApplication {
 		categoryDao.createTableCategory();
 
 //		create store
-		Store store = new Store("Jogmedia","Jalan Kapten Tendean No.17 Yogyakarta","31.460.572.6-061.000","55182","contact@gmail.com");
 		StoreDao storeDao = new StoreDao();
+		storeDao.deleteTableStore();
+		storeDao.alterTableStore();
+		Store store = new Store("Jogmedia","Jalan Kapten Tendean No.17 Yogyakarta","31.460.572.6-061.000","55182","contact@gmail.com");
 		storeDao.createTableStore();
 		storeDao.insertStore(store);
 

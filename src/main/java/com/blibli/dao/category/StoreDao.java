@@ -101,6 +101,32 @@ public class StoreDao extends My_Connection implements StoreDaoInterface {
             System.out.println("Error while creating table store.."+e.toString());
         }
     }
+    @Override
+    public void alterTableStore() {
+        String psql="alter table store add UNIQUE (store_name)";
+        try{
+            this.makeConnection();
+            Statement statement= this.con.createStatement();
+            statement.executeQuery(psql);
+            this.disconnect();
+        }
+        catch (Exception e){
+            System.out.println("Error while alter table store.."+e.toString());
+        }
+    }
+    @Override
+    public void deleteTableStore() {
+        String psql="delete from store";
+        try{
+            this.makeConnection();
+            Statement statement= this.con.createStatement();
+            statement.executeQuery(psql);
+            this.disconnect();
+        }
+        catch (Exception e){
+            System.out.println("Error while delete table store.."+e.toString());
+        }
+    }
 
     @Override
     public Store getIdStore(int idStore){
