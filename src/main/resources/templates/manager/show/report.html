@@ -28,7 +28,7 @@
                 <span th:inline="text"> Hi, [[${#httpServletRequest.remoteUser}]]!</span>
                 <form th:action="@{/logout}" method="post">
                     <button type="submit" class="btn btn-white btn-round">
-                        <i class="material-icons">input</i>Signout
+                        <i class="fa fa-sign-out fa-1"></i>&nbsp; Signout
                         <div class="ripple-container"></div>
                     </button>
                 </form>
@@ -38,31 +38,31 @@
             <ul class="nav">
                 <li>
                     <a href="/store">
-                        <i class="material-icons">home</i>
+                        <i class="fa fa-home fa-1"></i>
                         <p>Store</p>
                     </a>
                 </li>
                 <li>
                     <a href="/book">
-                        <i class="material-icons">book</i>
+                        <i class="fa fa-book fa-1"></i>
                         <p>Book</p>
                     </a>
                 </li>
                 <li>
                     <a href="/category">
-                        <i class="material-icons">bubble_chart</i>
+                        <i class="fa fa-th-list fa-1"></i>
                         <p>Category</p>
                     </a>
                 </li>
                 <li class="active">
                     <a href="/report">
-                        <i class="material-icons">description</i>
+                        <i class="fa fa-file fa-1"></i>
                         <p>Report</p>
                     </a>
                 </li>
                 <li>
                     <a href="/tampilemp">
-                        <i class="material-icons">person</i>
+                        <i class="fa fa-user fa-1"></i>
                         <p>Employee</p>
                     </a>
                 </li>
@@ -94,13 +94,13 @@
                             <ul class="nav nav-pills nav-pills-warning">
                                 <li class="active">
                                     <a href="/report">
-                                        <i class="material-icons">attach_money</i>
+                                        <i class="fa fa-line-chart fa-1"></i>
                                         General Ledger
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/report-detail">
-                                        <i class="material-icons">list</i>
+                                        <i class="fa fa-ellipsis-v fa-1"></i>
                                         Detail Transaction
                                     </a>
                                 </li>
@@ -156,7 +156,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="card card-stats">
                             <div class="card-header" data-background-color="grey">
-                                <i class="material-icons">book</i>
+                                <i class="fa fa-book fa-1"></i>
                             </div>
                             <div class="card-content">
                                 <p class="category">Out of Stock</p>
@@ -166,7 +166,7 @@
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons text-danger">warning</i>
+                                    <i class="fa fa-warning fa-1"></i>
                                     <a href="#pablo">Book is out of stock</a>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="card card-stats">
                             <div class="card-header" data-background-color="grey">
-                                <i class="material-icons">attach_money</i>
+                                <i class="fa fa-line-chart fa-1"></i>
                             </div>
                             <div class="card-content">
                                 <p class="category">Income</p>
@@ -185,7 +185,7 @@
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">date_range</i> in range week
+                                    <i class="fa fa-calendar fa-1"></i>
                                 </div>
                             </div>
                         </div>

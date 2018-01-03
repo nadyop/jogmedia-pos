@@ -28,9 +28,10 @@
                 <span th:inline="text"> Hi, [[${#httpServletRequest.remoteUser}]]!</span>
                 <form th:action="@{/logout}" method="post">
                     <button type="submit" class="btn btn-white btn-round">
-                        <i class="material-icons">input</i>Signout
+                        <i class="fa fa-sign-out fa-1"></i>&nbsp;Signout
                         <div class="ripple-container"></div>
                     </button>
+                </form>
                 </form>
             </center>
         </div>
@@ -39,35 +40,30 @@
                 <li>
                     <a href="/store">
                         <i class="fa fa-home fa-1"></i>
-                        <!--<i class="material-icons">home</i>-->
                         <p>Store</p>
                     </a>
                 </li>
                 <li class="active">
                     <a href="/book">
                         <i class="fa fa-book fa-1"></i>
-                        <!--<i class="material-icons">book</i>-->
                         <p>Book</p>
                     </a>
                 </li>
                 <li>
                     <a href="/category">
                         <i class="fa fa-th-list fa-1"></i>
-                        <!--<i class="material-icons">bubble_chart</i>-->
                         <p>Category</p>
                     </a>
                 </li>
                 <li>
                     <a href="/report">
                         <i class="fa fa-file fa-1"></i>
-                        <!--<i class="material-icons">description</i>-->
                         <p>Report</p>
                     </a>
                 </li>
                 <li>
                     <a href="/tampilemp">
                         <i class="fa fa-user fa-1"></i>
-                        <!--<i class="material-icons">person</i>-->
                         <p>Employee</p>
                     </a>
                 </li>
@@ -101,28 +97,28 @@
                                         <ul class="nav nav-tabs" data-tabs="tabs" style="background: transparent!important;">
                                             <li class="active">
                                                 <a href="/book">
-                                                    <i class="fa fa-book fa-1"></i>All Book
+                                                    <i class="fa fa-book fa-1"></i>&nbsp; All Book
                                                     <!--<i class="material-icons">book</i> All Book-->
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
                                             <li class="">
                                                 <a href="/discount">
-                                                    <i class="fa fa-gift fa-1"></i>Discount
+                                                    <i class="fa fa-gift fa-1"></i>&nbsp; Discount
                                                     <!--<i class="material-icons">loyalty</i> Discount-->
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
                                             <li class="">
                                                 <a href="/emptyStok">
-                                                    <i class="fa fa-times fa-1"></i>Out of Stock
+                                                    <i class="fa fa-times fa-1"></i>&nbsp; Out of Stock
                                                     <!--<i class="material-icons">clear</i> Out of Stock-->
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="/book/createBook" class="btn btn-white btn-round" style="color: black!important;">
-                                                    <i class="material-icons">add</i>New Book
+                                                    <i class="fa fa-plus fa-1"></i>&nbsp; New Book
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>

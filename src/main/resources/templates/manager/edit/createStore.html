@@ -29,31 +29,31 @@
             <ul class="nav">
                 <li class="active">
                     <a href="/store">
-                        <i class="material-icons">home</i>
+                        <i class="fa fa-home fa-1"></i>
                         <p>Store</p>
                     </a>
                 </li>
                 <li>
                     <a href="/book">
-                        <i class="material-icons">book</i>
+                        <i class="fa fa-book fa-1"></i>
                         <p>Book</p>
                     </a>
                 </li>
                 <li>
                     <a href="/category">
-                        <i class="material-icons">bubble_chart</i>
+                        <i class="fa fa-th-list fa-1"></i>
                         <p>Category</p>
                     </a>
                 </li>
                 <li>
                     <a href="/report">
-                        <i class="material-icons">description</i>
+                        <i class="fa fa-file fa-1"></i>
                         <p>Report</p>
                     </a>
                 </li>
                 <li>
                     <a href="/tampilemp">
-                        <i class="material-icons">person</i>
+                        <i class="fa fa-user fa-1"></i>
                         <p>Employee</p>
                     </a>
                 </li>
@@ -74,12 +74,12 @@
                 <div class="collapse navbar-collapse">
                     <form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
                         <button type="submit" class="btn btn-white btn-round">
-                            <i class="material-icons">input</i>Signout
+                            <i class="fa fa-sign-out fa-1"></i>&nbsp;Signout
                             <div class="ripple-container"></div>
                         </button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li th:inline="text"><a><i class="material-icons">person</i> Hi, [[${#httpServletRequest.remoteUser}]]!</a></li>
+                        <li th:inline="text"><a><i class="fa fa-user fa-1"></i> Hi, [[${#httpServletRequest.remoteUser}]]!</a></li>
                     </ul>
                 </div>
             </div>

@@ -28,7 +28,7 @@
                 <span th:inline="text"> Hi, [[${#httpServletRequest.remoteUser}]]!</span>
                 <form th:action="@{/logout}" method="post">
                     <button type="submit" class="btn btn-white btn-round">
-                        <i class="material-icons">input</i>Signout
+                        <i class="fa fa-sign-out fa-1"></i>Signout
                         <div class="ripple-container"></div>
                     </button>
                 </form>
@@ -38,31 +38,31 @@
             <ul class="nav">
                 <li>
                     <a href="/store">
-                        <i class="material-icons">home</i>
+                        <i class="fa fa-home fa-1"></i>
                         <p>Store</p>
                     </a>
                 </li>
                 <li class="active">
                     <a href="/book">
-                        <i class="material-icons">book</i>
+                        <i class="fa fa-book fa-1"></i>
                         <p>Book</p>
                     </a>
                 </li>
                 <li>
                     <a href="/category">
-                        <i class="material-icons">bubble_chart</i>
+                        <i class="fa fa-th-list fa-1"></i>
                         <p>Category</p>
                     </a>
                 </li>
                 <li>
                     <a href="/report">
-                        <i class="material-icons">description</i>
+                        <i class="fa fa-file fa-1"></i>
                         <p>Report</p>
                     </a>
                 </li>
                 <li>
                     <a href="/tampilemp">
-                        <i class="material-icons">person</i>
+                        <i class="fa fa-user fa-1"></i>
                         <p>Employee</p>
                     </a>
                 </li>
@@ -95,25 +95,25 @@
                                         <ul class="nav nav-tabs" data-tabs="tabs" style="background: transparent!important;">
                                             <li>
                                                 <a href="/book">
-                                                    <i class="material-icons">book</i> All Book
+                                                    <i class="fa fa-book fa-1"></i>&nbsp; All Book
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
                                             <li class="active">
                                                 <a href="/discount">
-                                                    <i class="material-icons">loyalty</i> Discount
+                                                    <i class="fa fa-gift fa-1"></i>&nbsp; Discount
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
                                             <li class="">
                                                 <a href="/emptyStok">
-                                                    <i class="material-icons">clear</i> Out of Stock
+                                                    <i class="fa fa-times fa-1"></i>&nbsp; Out of Stock
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="/book/createBook" class="btn btn-white btn-round" style="color: black!important;">
-                                                    <i class="material-icons">add</i>New Book
+                                                    <i class="fa fa-plus fa-1"></i>&nbsp; New Book
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
