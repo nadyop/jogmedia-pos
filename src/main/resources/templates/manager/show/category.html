@@ -112,6 +112,17 @@
                             <!--content tab-->
                             <div class="card-content">
                                 <div class="tab-content">
+                                    <form class="form-horizontal" th:action="@{/category/search}" method="post">
+                                        <!--Search Category-->
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6 row-fluid input-group" style="margin-top:3%">
+                                            <input type="text" class="form-control" name="searchKey" th:value="${searchKey}" placeholder="Category Name"/>
+                                            <span class="input-group-btn">
+                                              <button class="btn btn-default btn-search btn-sm" type="button" name="button" >Search</button>
+                                            </span>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    </form>
                                     <div class="display tab-pane table-responsive active" th:if="${not #lists.isEmpty(category)}" style="align-items: left!important;">
                                         <table class="display table" id="showTable">
                                             <thead class="text-primary">
