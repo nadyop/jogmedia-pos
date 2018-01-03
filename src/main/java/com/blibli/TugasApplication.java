@@ -15,7 +15,7 @@ public class TugasApplication {
 		Employee employee= new Employee("manager", "manager","$2a$10$mdhjwE.eJGRXp6P59U.dUOkOtweSDNBIcWTM3Jo3uhhqAGjT69/S2","Manager");
 		EmployeeDao employeeDao = new EmployeeDao();
 		employeeDao.createTable();
-		employeeDao.insertCategory(employee);
+		employeeDao.insertEmployee(employee);
 //		create book
 		BookDao bookDao = new BookDao();
 		bookDao.createTableBook();

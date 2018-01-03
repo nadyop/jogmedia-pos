@@ -8,7 +8,7 @@ public interface EmployeeDaoInterface {
 
     void softDeleteEmployee(int id);
     void createTable();
-    void insertCategory(Employee E);
+    void insertEmployee(Employee E);
     Employee getIdEmployee(int idEmployee);
     List<Employee> getAllEmployee();
     List<Employee> search(String searchKey);

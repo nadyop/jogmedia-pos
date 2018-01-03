@@ -30,7 +30,7 @@ public class EmployeeServices {
     }
 
     public void save(Employee e){
-        employeeDaoInterface.insertCategory(e);
+        employeeDaoInterface.insertEmployee(e);
     }
 
     public void softDeleteEmployee(Integer id) {

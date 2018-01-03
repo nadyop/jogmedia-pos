@@ -54,7 +54,7 @@ public class BookDao extends My_Connection implements BookInterface {
             }
             this.disconnect();
         } catch (Exception e) {
-            System.out.println("Error while get all books.. " + e.toString());
+            System.out.println("Error while get all books discount.. " + e.toString());
         }
         return books;
     }

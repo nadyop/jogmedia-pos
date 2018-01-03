@@ -5,13 +5,12 @@ import java.util.Date;
 public class Transaction {
     private int transaction_id, employee_id;
     private Date tanggal;
-    private double total_pembelian, total_pembayaran;
+    private double total_pembelian;
 
     public Transaction(int transaction_id, int employee_id, double total_pembelian, Date tanggal) {
         this.transaction_id = transaction_id;
         this.tanggal = tanggal;
         this.total_pembelian = total_pembelian;
-
         this.employee_id=employee_id;
     }
 
@@ -38,8 +37,6 @@ public class Transaction {
     public void setTotal_pembelian(double total_pembelian) {
         this.total_pembelian = total_pembelian;
     }
-
-
 
     public int getEmployee_id() {
         return employee_id;

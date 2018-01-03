@@ -49,7 +49,7 @@ public class EmployeeDao extends My_Connection implements EmployeeDaoInterface {
 
 
     @Override
-    public void insertCategory(Employee E){
+    public void insertEmployee(Employee E){
         String psql;
         System.out.println(E.getEmployee_id());
         if(E.getEmployee_id()!=0){
