@@ -98,14 +98,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Store Name</label>
-                                                <input th:field="*{store_name}" type="text" class="input form-control" name="" value=""/>
+                                                <input th:field="*{store_name}" type="text" class="input form-control" name="" value="" required="required"/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Address</label>
-                                                <input th:field="*{address}" type="text" class="input form-control" name=""
-                                                       value=""/>
+                                                <input th:field="*{address}" type="text" class="input form-control" name="" value="" required="required"/>
                                             </div>
                                         </div>
                                     </div>
@@ -114,21 +113,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">NPWP</label>
-                                                <input th:field="*{npwp}" type="text" class="input form-control" name=""
-                                                       value=""/>
+                                                <input th:field="*{npwp}" type="text" class="input form-control" name="" value="" required="required"/>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Post Code</label>
-                                                <input th:field="*{post_code}" type="text" class="input form-control" name=""
-                                                       value=""/>
+                                                <input th:field="*{post_code}" type="text" class="input form-control" name="" value="" required="required"/>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Email</label>
-                                                <input th:field="*{email}" type="text" class="form-control" required="required"/>
+                                                <input th:field="*{email}" type="email" class="form-control" required="required" required="required"/>
                                             </div>
                                         </div>
                                     </div>
