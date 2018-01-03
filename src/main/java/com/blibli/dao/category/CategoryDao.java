@@ -99,7 +99,7 @@ public class CategoryDao extends My_Connection implements CategoryDaoInterface {
 
     @Override
     public void createTableCategory() {
-        String psql="create table CATEGORY(Category_id serial not null,category_name character varying(255),category_desc text,STATUS integer,unique(category_name),constraint PK_category primary key (category_ID))";
+        String psql="create table if not exists CATEGORY(Category_id serial not null,category_name character varying(255),category_desc text,STATUS integer,unique(category_name),constraint PK_category primary key (category_ID))";
         try{
 
             this.makeConnection();

@@ -47,7 +47,6 @@ public class StoreDao extends My_Connection implements StoreDaoInterface {
     @Override
     public void insertStore(Store S){
         String psql;
-
         if(S.getStore_id()!=0){
             psql="UPDATE Store set store_name=?, address=?, npwp=?, post_code=?, email=? where store_id=?";
             try {
@@ -65,6 +64,24 @@ public class StoreDao extends My_Connection implements StoreDaoInterface {
                 this.disconnect();
             }
             catch (Exception e){
+                System.out.println("Error while updating .."+e.toString());
+            }
+        }else{
+            psql="Insert into Store(store_name, address, npwp, post_code, email) VALUES(?,?,?,?,?)";
+            try {
+                this.makeConnection();
+                PreparedStatement preparedStatement= this.con.prepareStatement(psql);
+
+                preparedStatement.setString(1, S.getStore_name());
+                preparedStatement.setString(2, S.getAddress());
+                preparedStatement.setString(3, S.getNpwp());
+                preparedStatement.setString(4, S.getPost_code());
+                preparedStatement.setString(5, S.getEmail());
+                preparedStatement.executeUpdate();
+
+                this.disconnect();
+            }
+            catch (Exception e){
                 System.out.println("Error while inserting .."+e.toString());
             }
         }
@@ -72,7 +89,7 @@ public class StoreDao extends My_Connection implements StoreDaoInterface {
 
     @Override
     public void createTableStore() {
-        String psql="create table STORE(store_id serial not null,store_name character varying(50),address character varying (255),npwp character varying(25),post_code character varying(10),email character varying(50),constraint PK_Store primary key(store_id))";
+        String psql="create table if not exists STORE(store_id serial not null,store_name character varying(50),address character varying (255),npwp character varying(25),post_code character varying(10),email character varying(50),constraint PK_Store primary key(store_id))";
         try{
 
             this.makeConnection();

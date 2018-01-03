@@ -197,7 +197,7 @@ public class BookDao extends My_Connection implements BookInterface {
 
     @Override
     public void createTableBook() {
-        String psql="create table BOOK " + "(BOOK_ID serial not null," + "CATEGORY_ID  integer not null," + "ISBN character varying(20)," + "BOOK_TITLE character varying(255)," + "AUTHOR  character varying(255)," + "PUBLISHER character varying(255)," + "PRICE_BEFORE numeric(19,2)," + "PRICE_AFTER numeric(19,2)," + "DISCOUNT integer," + "LOCATION character varying(20)," + "stok integer," + "status integer," + "constraint PK_BOOK primary key (BOOK_ID)," + "constraint fk_catId foreign key(category_id) references category(category_id)" + ")";
+        String psql="create table if not exists BOOK " + "(BOOK_ID serial not null," + "CATEGORY_ID  integer not null," + "ISBN character varying(20)," + "BOOK_TITLE character varying(255)," + "AUTHOR  character varying(255)," + "PUBLISHER character varying(255)," + "PRICE_BEFORE numeric(19,2)," + "PRICE_AFTER numeric(19,2)," + "DISCOUNT integer," + "LOCATION character varying(20)," + "stok integer," + "status integer," + "constraint PK_BOOK primary key (BOOK_ID)," + "constraint fk_catId foreign key(category_id) references category(category_id)" + ")";
         try{
 
             this.makeConnection();
