@@ -44,13 +44,13 @@ public class TugasApplication {
 		TransactionDao transactionTemp = new TransactionDao();
 		transactionTemp.createTableTemp();
 
-//		update date
-		TransactionDao transactionDao1 = new TransactionDao();
-		transactionDao1.updateDate();
-
-//		update date
-		TransactionDao transactionDao2 = new TransactionDao();
-		transactionDao2.updateTahun();
+////		update date
+//		TransactionDao transactionDao1 = new TransactionDao();
+//		transactionDao1.updateDate();
+//
+////		update date
+//		TransactionDao transactionDao2 = new TransactionDao();
+//		transactionDao2.updateTahun();
 
 	}
 }
