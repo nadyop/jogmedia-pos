@@ -6,7 +6,6 @@
 
  * Product Page: http://www.creative-tim.com/product/material-dashboard
  * Copyright 2017 Creative Tim (http://www.creative-tim.com)
- * Licensed under MIT (https://github.com/creativetimofficial/material-dashboard/blob/master/LICENSE.md)
 
  =========================================================
 
@@ -162,15 +161,15 @@ md = {
 
             nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
 
-            navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
+            // navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
 
             $sidebar_nav = $sidebar_wrapper.find(' > .nav');
 
             // insert the navbar form before the sidebar list
             $nav_content = $(nav_content);
-            $navbar_form = $(navbar_form);
+            // $navbar_form = $(navbar_form);
             $nav_content.insertBefore($sidebar_nav);
-            $navbar_form.insertBefore($nav_content);
+            // $navbar_form.insertBefore($nav_content);
 
             $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(event) {
                 event.stopPropagation();
@@ -190,57 +189,7 @@ md = {
                 mobile_menu_initialized = false;
             }
         }
-    }, 200),
-
-
-    startAnimationForLineChart: function(chart) {
-
-        chart.on('draw', function(data) {
-            if (data.type === 'line' || data.type === 'area') {
-                data.element.animate({
-                    d: {
-                        begin: 600,
-                        dur: 700,
-                        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
-                        to: data.path.clone().stringify(),
-                        easing: Chartist.Svg.Easing.easeOutQuint
-                    }
-                });
-            } else if (data.type === 'point') {
-                seq++;
-                data.element.animate({
-                    opacity: {
-                        begin: seq * delays,
-                        dur: durations,
-                        from: 0,
-                        to: 1,
-                        easing: 'ease'
-                    }
-                });
-            }
-        });
-
-        seq = 0;
-    },
-    startAnimationForBarChart: function(chart) {
-
-        chart.on('draw', function(data) {
-            if (data.type === 'bar') {
-                seq2++;
-                data.element.animate({
-                    opacity: {
-                        begin: seq2 * delays2,
-                        dur: durations2,
-                        from: 0,
-                        to: 1,
-                        easing: 'ease'
-                    }
-                });
-            }
-        });
-
-        seq2 = 0;
-    }
+    }, 200)
 }
 
 

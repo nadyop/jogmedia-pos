@@ -33,8 +33,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.authorizeRequests()
-                //pada access disini pakai hasAuthority (instead of hasRole) karena
-                //kalau pake hasRole, di database harus ada prefix ROLE_ pada record-nya, contoh ROLE_CASHIER
                 .antMatchers("/transaction/**").access("hasAnyAuthority('Cashier', 'Manager')")
                 .antMatchers("/home/**","/", "/book/**", "/category/**", "/discount/**", "/emptyStok/**", "/report/**", "/report/**", "/report-detail/**", "/report-month/**", "/report-year/**", "/tampilemp/**", "/store/**", "/createBook/**", "/createCategory/**","/createEmployee/**","/createStore/**").access("hasAuthority('Manager')")
                 .and()
