@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -356,6 +357,34 @@ public class TransactionDao extends My_Connection implements TransactionInterfac
             this.disconnect();
         } catch (Exception e) {
             System.out.println("Error while creating table detil_transaction.. "+e.toString());
+        }
+    }
+
+    @Override
+    public void updateDate() {
+        String psql;
+        psql = "UPDATE transaction SET tanggal_transaksi='2017-11-10' WHERE total_pembelian=146000.0";
+        try {
+            this.makeConnection();
+            Statement statement = this.con.createStatement();
+            statement.execute(psql);
+            this.disconnect();
+        } catch (Exception e) {
+            System.out.println("Error while update transaction .."+e.toString());
+        }
+    }
+
+    @Override
+    public void updateTahun() {
+        String psql;
+        psql = "UPDATE transaction SET tanggal_transaksi='2017-07-10' WHERE total_pembelian=1305000.0";
+        try {
+            this.makeConnection();
+            Statement statement = this.con.createStatement();
+            statement.execute(psql);
+            this.disconnect();
+        } catch (Exception e) {
+            System.out.println("Error while update transaction .."+e.toString());
         }
     }
 

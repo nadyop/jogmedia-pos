@@ -2,6 +2,7 @@ package com.blibli.dao_api;
 
 import com.blibli.model.*;
 
+import java.util.Date;
 import java.util.List;
 
 public interface TransactionInterface {
@@ -17,6 +18,8 @@ public interface TransactionInterface {
     void createTableTransaction();
     void createTableTemp();
     void createTableDetilTransaction();
+    void updateDate();
+    void updateTahun();
 
     List<Book> searchCashier(String searchKey);
     List<TempDetil> getAllTempDetilSaved();
