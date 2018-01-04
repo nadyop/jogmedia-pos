@@ -12,7 +12,7 @@ public class TugasApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TugasApplication.class, args);
 //		create employee
-		Employee employee= new Employee("manager", "manager","$2a$10$mdhjwE.eJGRXp6P59U.dUOkOtweSDNBIcWTM3Jo3uhhqAGjT69/S2","Manager");
+		Employee employee= new Employee("Manager atas", "manager01","a","Manager");
 		EmployeeDao employeeDao = new EmployeeDao();
 		employeeDao.createTable();
 		employeeDao.insertEmployee(employee);
