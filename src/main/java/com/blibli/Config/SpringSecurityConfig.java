@@ -33,8 +33,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.authorizeRequests()
-                .antMatchers("/transaction/**").access("hasAnyAuthority('Cashier', 'Manager')")
-                .antMatchers("/home/**","/", "/book/**", "/category/**", "/discount/**", "/emptyStok/**", "/report/**", "/report/**", "/report-detail/**", "/report-month/**", "/report-year/**", "/tampilemp/**", "/store/**", "/createBook/**", "/createCategory/**","/createEmployee/**","/createStore/**").access("hasAuthority('Manager')")
+                .antMatchers("/transaction/**","/home/**","/").access("hasAnyAuthority('Cashier', 'Manager')")
+                .antMatchers("/book/**", "/category/**", "/discount/**", "/emptyStok/**", "/report/**", "/report/**", "/report-detail/**", "/report-month/**", "/report-year/**", "/tampilemp/**", "/store/**", "/createBook/**", "/createCategory/**","/createEmployee/**","/createStore/**").access("hasAuthority('Manager')")
                 .and()
                 .formLogin().loginPage("/login").failureUrl("/login?error")
                 .defaultSuccessUrl("/")

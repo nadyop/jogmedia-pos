@@ -1,15 +1,23 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
 </head>
 <body>
 
 <div class="container">
-    <div class="starter-template">
-        <h1>403 - Access is denied</h1>
-        <div th:inline="text">Hello '[[${#httpServletRequest.remoteUser}]]',
-            you do not have permission to access this page.</div>
-    </div>
+    <center>
+        <div class="starter-template">
+            <h1>403 - Access is denied</h1>
+            <div th:inline="text">Hello '[[${#httpServletRequest.remoteUser}]]',
+                you do not have permission to access this page.</div>
+        </div>
+        <div class="row">
+            <a href="/transaction">
+                <input type="submit" class="btn btn-primary" value="Go to transaction"/>
+            </a>
+        </div>
+    </center>
 </div>
 <!-- /.container -->
 </body>
